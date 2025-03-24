@@ -3,16 +3,14 @@ package main
 import (
   "encoding/json"
   "strconv"
+  "time"
   "fmt"
   "os"
-  "time"
 
   "fyne.io/fyne/v2"
   "fyne.io/fyne/v2/container"
   "fyne.io/fyne/v2/widget"
 )
-
-var getYear int = time.Now().Year()
 
 func AddTab() *container.TabItem {
   singleTextField := widget.NewEntry()
@@ -48,25 +46,26 @@ func AddTab() *container.TabItem {
   daySelect.Resize(fyne.NewSize(60.0, 36.0))
   daySelect.Move(fyne.NewPos(-100.0, 0.0))
 
-  buttonReset := widget.NewButton("Reset", func() {
+  resetForms := func() {
     singleTextField.SetText("")
     multiTextField.SetText("")
     yearSelect.SetSelected(strconv.Itoa(getYear))
     monthSelect.SetSelected("1")
     daySelect.SetSelected("1")
-  })
+  }
+
+  buttonReset := widget.NewButton("Reset", resetForms)
   buttonReset.Resize(fyne.NewSize(80.0, 40.0))
   buttonReset.Move(fyne.NewPos(0.0, 50.0))
   buttonAdd := widget.NewButton("Add", func() {
-    scheduleData := []map[string]string {
-      {
-        "title" : singleTextField.Text,
-        "description" : multiTextField.Text,
-        "year" : yearSelect.Selected,
-        "month" : monthSelect.Selected,
-        "day" : daySelect.Selected,
-      },
-    }
+    BringScheduleData("todolist.json")
+    scheduleData = append(scheduleData, map[string]string {
+      "title" : singleTextField.Text,
+      "description" : multiTextField.Text,
+      "year" : yearSelect.Selected,
+      "month" : monthSelect.Selected,
+      "day" : daySelect.Selected,
+    })
     jsonData, err := json.MarshalIndent(scheduleData, "", "  ")
     if err != nil {
       fmt.Println("json parsing error:", err)
@@ -77,6 +76,8 @@ func AddTab() *container.TabItem {
       fmt.Println("write file error:", err)
       return
     }
+    SendNotification("Add Schedule", singleTextField.Text)
+    resetForms()
   })
   buttonAdd.Resize(fyne.NewSize(80.0, 40.0))
   buttonAdd.Move(fyne.NewPos(180.0, 50.0))
