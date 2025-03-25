@@ -9,14 +9,14 @@ import (
 func main() {
   myApp := app.New()
   myWin := myApp.NewWindow("ToDo-List")
-  myWin.Resize(fyne.NewSize(480.0, 360.0))
-
-  tabs := container.NewAppTabs(
-    DisplayTab(myWin),
-    AddTab(),
+  myWin.Resize(fyne.NewSize(500.0, 400.0))
+  myWin.SetFixedSize(true)
+  myWin.CenterOnScreen()
+  myWin.SetContent(
+    container.NewAppTabs(
+      DisplayTab(myWin),
+      AddTab(),
+    ),
   )
-  tabs.SetTabLocation(container.TabLocationTop)
-
-  myWin.SetContent(tabs)
   myWin.ShowAndRun()
 }
