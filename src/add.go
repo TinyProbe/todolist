@@ -58,7 +58,6 @@ func AddTab() *container.TabItem {
   buttonReset.Resize(fyne.NewSize(80.0, 40.0))
   buttonReset.Move(fyne.NewPos(0.0, 50.0))
   buttonAdd := widget.NewButton("Add", func() {
-    BringScheduleData("todolist.json")
     scheduleData = append(scheduleData, map[string]string {
       "title" : singleTextField.Text,
       "description" : multiTextField.Text,
@@ -66,6 +65,7 @@ func AddTab() *container.TabItem {
       "month" : monthSelect.Selected,
       "day" : daySelect.Selected,
     })
+    SortScheduleData()
     jsonData, err := json.MarshalIndent(scheduleData, "", "  ")
     if err != nil {
       fmt.Println("json parsing error:", err)

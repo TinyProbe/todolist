@@ -12,7 +12,7 @@ func main() {
   myWin.Resize(fyne.NewSize(480.0, 360.0))
 
   tabs := container.NewAppTabs(
-    DisplayTab(),
+    DisplayTab(myWin),
     AddTab(),
   )
   tabs.SetTabLocation(container.TabLocationTop)

@@ -16,11 +16,10 @@ var getYear int = time.Now().Year()
 func SendNotification(title, message string) {
   switch runtime.GOOS {
   case "linux":
-    cmd := exec.Command(title, message)
+    cmd := exec.Command("notify-send", title, message)
     cmd.Run()
-    case "darwin": // macOS
-    cmd := exec.Command(
-        "osascript", "-e", fmt.Sprintf("%s: %s", title, message))
+  case "darwin":
+    cmd := exec.Command("osascript", "-e", fmt.Sprintf("%s: %s", title, message))
     cmd.Run()
   default:
     fmt.Println("This OS doesn't support notifications.")
