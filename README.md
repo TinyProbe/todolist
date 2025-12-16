@@ -1,4 +1,4 @@
-# 📝 Go-ToDoList
+# 📝 Go-Todolist
 
 <p align="center">
 Go 언어와 Fyne 라이브러리를 활용하여 개발된 크로스 플랫폼 GUI ToDoList
