@@ -1,7 +1,7 @@
 # 📝 Go-ToDoList
 
 <p align="center">
-Go 언어와 Fyne 라이브러리를 활용하여 개발된 크로스 플랫폼 GUI TODO 리스트
+Go 언어와 Fyne 라이브러리를 활용하여 개발된 크로스 플랫폼 GUI ToDoList
 애플리케이션입니다.
 </p>
 
@@ -11,12 +11,19 @@ Go 언어와 Fyne 라이브러리를 활용하여 개발된 크로스 플랫폼 
 개의 주요 탭으로 구성되어 있습니다.
 
 - ➕ Add 탭: 일정 생성
+
     - 새로운 할 일 항목을 입력하고 저장할 수 있습니다.
+
 - 📋 Display 탭: 일정 확인 및 관리
+
     - 저장된 전체 할 일 목록을 표시합니다.
+
     - 목록에서 완료된 항목을 개별적으로 확인하거나 삭제할 수 있습니다.
+
 - 💾 데이터 지속성
+
     - 모든 일정 데이터는 프로젝트 루트 디렉터리에 위치한 todolist.json 파일에 JSON 형식으로 자동 저장됩니다.
+
 
 ## 🚀 Installation & Execution
 
@@ -46,7 +53,7 @@ go get fyne.io/fyne/v2
 
 #### 3. PKG_CONFIG_PATH 설정 (Optional)
 
-시스템에 따라 gl.pc 파일 경로를 환경 변수에 추가해야 할 수 있습니다.
+시스템에 따라 gl.pc 파일 경로를 환경 변수에 추가해야 할 수도 있습니다.
 
 ```bash
 # gl.pc 파일의 위치를 찾습니다.
@@ -72,12 +79,6 @@ go build -o todolist ./src
 ./todolist
 ```
 
-### 🧹 Data Reset
-
-저장된 일정을 완전히 초기화하려면 프로젝트 루트 디렉터리의 todolist.json 파일을
-삭제하면 됩니다.
-
 ## 🔗 Related Technologies
 - 언어: [Go(Golang)](https://go.dev/)
 - GUI 라이브러리: [Fyne](https://fyne.io/) (크로스 플랫폼 GUI 툴킷)
-
