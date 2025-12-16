@@ -8,7 +8,7 @@ import (
 
 func main() {
     myApp := app.New()
-    myWin := myApp.NewWindow("ToDo-List")
+    myWin := myApp.NewWindow("ToDoList")
     myWin.Resize(fyne.NewSize(500.0, 400.0))
     myWin.SetFixedSize(true)
     myWin.CenterOnScreen()
