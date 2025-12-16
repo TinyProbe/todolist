@@ -82,3 +82,7 @@ go build -o todolist ./src
 ## 🔗 Related Technologies
 - 언어: [Go(Golang)](https://go.dev/)
 - GUI 라이브러리: [Fyne](https://fyne.io/) (크로스 플랫폼 GUI 툴킷)
+
+## 📄 License
+
+이 프로젝트는 MIT 라이선스를 따릅니다.
